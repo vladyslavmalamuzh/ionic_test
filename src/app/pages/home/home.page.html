@@ -19,7 +19,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+  <ion-list *ngIf="cards$ | async as cards">
+    <app-card *ngFor="let card of cards" [card]="card"></app-card>
   </ion-list>
 </ion-content>
