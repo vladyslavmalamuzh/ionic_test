@@ -18,6 +18,10 @@ export namespace HomeActions {
     '[Home] Do something',
     props<{ randomProp: string }>()
   );
+	export const cacheSearch = createAction(
+		'[Home] Cache Search',
+		props<{ value: string }>()
+	);
 
   export const clearAllState = createAction('[Home] Clear All state');
 }

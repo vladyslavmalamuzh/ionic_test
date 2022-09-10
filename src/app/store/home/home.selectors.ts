@@ -13,4 +13,8 @@ export namespace HomeSelectors {
 		selectHomeState,
 		(state: fromHome.IState, id: number) => state.cards.find((e) => e.sku === id)
 	);
+	export const selectSearchCards = createSelector(
+		selectHomeState,
+		(state: fromHome.IState) => state.cacheCards
+	);
 }

@@ -8,11 +8,13 @@ export namespace fromHome {
   export interface IState {
     something: any;
     cards: ICardModel[];
+    cacheCards: ICardModel[];
   }
 
   export const initialState: IState = {
     something: '',
     cards: [],
+    cacheCards: [],
   };
 
   export const reducer = createReducer(
@@ -25,6 +27,10 @@ export namespace fromHome {
     on(HomeActions.loadCardsSuccess, (state, { response }) => ({
       ...state,
       cards: response,
+    })),
+    on(HomeActions.cacheSearch, (state, { value }) => ({
+      ...state,
+      cacheCards: [...state.cards.filter((elem) => elem.name.toLowerCase().includes(value))]
     }))
   );
 }
