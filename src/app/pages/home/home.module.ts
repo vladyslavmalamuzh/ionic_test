@@ -15,6 +15,6 @@ import { MessageComponentModule } from '../../components/message/message.module'
     MessageComponentModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}
