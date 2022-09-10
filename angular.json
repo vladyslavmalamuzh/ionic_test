@@ -108,6 +108,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
+              },
+              {
+                "glob": "data2.json",
+                "input": "./",
+                "output": "./assets/data/"
               }
             ]
           },
