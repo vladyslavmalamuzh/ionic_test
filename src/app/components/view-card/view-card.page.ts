@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService, Message } from '../../services/data.service';
 import { ICardModel } from '../../services/http/models/cards.model';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -20,7 +19,6 @@ enum CalculatorForm {
   styleUrls: ['./view-card.page.scss'],
 })
 export class ViewCardPage implements OnInit {
-  public message: Message;
   public card$: Observable<ICardModel>;
   public amount: number;
   public quantity: number;
@@ -31,7 +29,6 @@ export class ViewCardPage implements OnInit {
   });
 
   constructor(
-    private data: DataService,
     private store$: Store,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
