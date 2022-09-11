@@ -11,7 +11,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   
-  <ion-header collapse="condense">
+  <ion-header class="header">
     <ion-toolbar>
 		    <ion-searchbar showCancelButton="never" debounce="100" [formControl]="searchForm.controls['SEARCH']"
 		                   (ionChange)="search()"></ion-searchbar>
@@ -19,12 +19,12 @@
   </ion-header>
   
 		<ng-container *ngIf="!(searchActive$ | async); else searchRef">
-    <ion-list *ngIf="cards$ | async as cards">
+    <ion-list *ngIf="cards$ | async as cards" class="list">
       <app-card *ngFor="let card of cards; index as id" [card]="card"></app-card>
     </ion-list>
 		</ng-container>
 		<ng-template #searchRef>
-				<ion-list *ngIf="cacheSearchCards$ | async as cards">
+				<ion-list *ngIf="cacheSearchCards$ | async as cards" class="list">
 						<app-card *ngFor="let card of cards; index as id" [card]="card"></app-card>
 				</ion-list>
 		</ng-template>
