@@ -4,10 +4,10 @@ import { ICardModel } from "../../services/http/models/cards.model";
 
 @Component({
   selector: 'app-card',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
-export class MessageComponent implements OnInit {
+export class CardComponent implements OnInit {
   @Input() card: ICardModel;
 
   constructor() { }

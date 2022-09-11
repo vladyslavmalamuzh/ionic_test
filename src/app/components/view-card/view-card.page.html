@@ -19,19 +19,21 @@
     <p>{{ card.description }}</p>
   </div>
   <ion-row class="row">
-    <ion-button>100$</ion-button>
-    <ion-button>10$</ion-button>
-    <ion-button>2.2 qty</ion-button>
-    <ion-button>9 qty</ion-button>
+    <ion-button (click)="sum(100, card.price)">100$</ion-button>
+    <ion-button (click)="sum(10,  card.price)">10$</ion-button>
+    <ion-button (click)="sumQuantity(2.2,  card.price)">2.2 qty</ion-button>
+    <ion-button (click)="sumQuantity(9,  card.price)">9 qty</ion-button>
   </ion-row>
+		<form [formGroup]="calcForm">
   <ion-row class="row-inputs">
     <ion-item class="overflow-visible">
       <ion-label class="label">Amount, $</ion-label>
-      <ion-input></ion-input>
+      <ion-input [formControl]="calcForm.controls['AMOUNT']" type="number"></ion-input>
     </ion-item>
     <ion-item class="overflow-visible">
       <ion-label class="label">Quantity</ion-label>
-      <ion-input></ion-input>
+      <ion-input [formControl]="calcForm.controls['QUANTITY']" type="number"></ion-input>
     </ion-item>
   </ion-row>
+		</form>
 </ion-content>

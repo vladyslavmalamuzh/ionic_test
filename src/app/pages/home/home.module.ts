@@ -5,14 +5,14 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { MessageComponentModule } from '../../components/message/message.module';
+import { CardModule } from '../../components/card/card.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MessageComponentModule,
+    CardModule,
     HomePageRoutingModule,
     ReactiveFormsModule,
   ],

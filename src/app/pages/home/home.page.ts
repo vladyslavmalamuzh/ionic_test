@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Message } from '../../services/data.service';
 import { ICardModel } from '../../services/http/models/cards.model';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';

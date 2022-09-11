@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const EFFECTS = [HomeEffects];
 
@@ -28,6 +29,7 @@ export const EFFECTS = [HomeEffects];
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot(EFFECTS),
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
