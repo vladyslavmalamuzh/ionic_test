@@ -45,7 +45,6 @@ export class ViewCardPage implements OnInit {
   public selectCurrentCard() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const currentId = parseInt(id, 10);
-    console.log(id);
     this.card$ = this.store$.select(HomeSelectors.selectCardById, currentId);
     this.store$
       .select(HomeSelectors.selectCardByIdPrice, currentId)
@@ -54,6 +53,7 @@ export class ViewCardPage implements OnInit {
   }
 
   public updateForm() {
+    console.log(this.cardPrice);
     this.calcForm.controls[CalculatorForm.AMOUNT].valueChanges
       .pipe(
         untilDestroyed(this),
@@ -61,7 +61,7 @@ export class ViewCardPage implements OnInit {
           if (this.calcForm.controls[CalculatorForm.AMOUNT].touched){
             this.calcForm.controls[CalculatorForm.QUANTITY].markAsUntouched();
             this.calcForm.controls[CalculatorForm.QUANTITY].setValue(
-              data / this.cardPrice
+               +(data / this.cardPrice).toFixed(1)
             );
           }
         })
@@ -74,7 +74,7 @@ export class ViewCardPage implements OnInit {
           if (this.calcForm.controls[CalculatorForm.QUANTITY].touched){
             this.calcForm.controls[CalculatorForm.AMOUNT].markAsUntouched();
             this.calcForm.controls[CalculatorForm.AMOUNT].setValue(
-              data * this.cardPrice
+              +(data * this.cardPrice).toFixed(1)
             );
           }
         })
@@ -90,16 +90,16 @@ export class ViewCardPage implements OnInit {
 
   public sum(param: number, cardPrice: number) {
     const result = this.calcForm.controls[CalculatorForm.AMOUNT].value + param;
-    this.calcForm.controls[CalculatorForm.AMOUNT].setValue(result);
+    this.calcForm.controls[CalculatorForm.AMOUNT].setValue(+result.toFixed(1));
     this.calcForm.controls[CalculatorForm.QUANTITY].setValue(
-      result / cardPrice
+      +(result / cardPrice).toFixed(1)
     );
   }
 
   public sumQuantity(param: number, cardPrice: number) {
     const result =
       this.calcForm.controls[CalculatorForm.QUANTITY].value + param;
-    this.calcForm.controls[CalculatorForm.QUANTITY].setValue(result);
-    this.calcForm.controls[CalculatorForm.AMOUNT].setValue(result * cardPrice);
+    this.calcForm.controls[CalculatorForm.QUANTITY].setValue(+result.toFixed(1));
+    this.calcForm.controls[CalculatorForm.AMOUNT].setValue(+(result * cardPrice).toFixed(1));
   }
 }
